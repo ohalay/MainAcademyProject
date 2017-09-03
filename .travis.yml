@@ -1,5 +1,5 @@
 language: csharp
-solution: BusTickets.API.sln
+solution: BusTickets.WebAPI/BusTickets.WebAPI.sln
 sudo: false
 dist: trusty
 mono: none

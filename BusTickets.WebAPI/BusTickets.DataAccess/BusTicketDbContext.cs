@@ -5,7 +5,15 @@ namespace BusTickets.DataAccess
 {
     public class BusTicketDbContext : DbContext, IBusTicketDbContext
     {
-        public DbSet<CityNearby> CitiesNearby { get; set; }
+        public virtual DbSet<CitiesNearby> CitiesNearbys { get; set; }
+
+        public virtual DbSet<City> Cities { get; set; }
+
+        public virtual DbSet<BusStop> BusStops { get; set; }
+
+        public virtual DbSet<BusStation> BusStations { get; set; }
+
+        public virtual DbSet<Journey> Journeys { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

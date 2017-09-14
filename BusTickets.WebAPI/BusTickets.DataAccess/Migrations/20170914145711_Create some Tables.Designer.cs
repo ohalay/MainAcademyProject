@@ -10,9 +10,10 @@ using System;
 namespace BusTickets.DataAccess.Migrations
 {
     [DbContext(typeof(BusTicketDbContext))]
-    partial class BusTicketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170914145711_Create some Tables")]
+    partial class CreatesomeTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

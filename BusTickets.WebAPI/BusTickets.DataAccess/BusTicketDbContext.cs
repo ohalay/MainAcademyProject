@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BusTickets.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.DataAccess
 {
-    public class BusTicketDbContext : DbContext
+    public class BusTicketDbContext : DbContext, IBusTicketDbContext
     {
+        public DbSet<CityNearby> CitiesNearby { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connection = @"Server=.;Database=BusTicket;Trusted_Connection=True;";

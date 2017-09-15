@@ -15,7 +15,6 @@ branches:
 script:
   - dotnet restore BusTickets.WebAPI
   - dotnet build -c Release BusTickets.WebAPI
-  - dotnet test BusTickets.WebAPI/BusTickets.BusinessServices.UnitTests/BusTickets.BusinessServices.UnitTests.csproj
 notifications:
   email: false
   slack: 

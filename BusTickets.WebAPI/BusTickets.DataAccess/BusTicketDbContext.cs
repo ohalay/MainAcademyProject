@@ -22,5 +22,20 @@ namespace BusTickets.DataAccess
 
             optionsBuilder.UseSqlServer(connection, opton => opton.EnableRetryOnFailure(retryLogicCount));
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Journey>().HasOne(s => s.DepartureBusStation)
+                .WithMany(s => s.DepartureBusStation)
+                .HasForeignKey(s => s.DepartureStationID)
+                .HasConstraintName("DepartureBusStation_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Journey>().HasOne(s => s.ArrivalBusStation)
+                .WithMany(s => s.ArrivalBusStation)
+                .HasForeignKey(s => s.ArrivalStationID)
+                .HasConstraintName("ArrivalBusStation_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

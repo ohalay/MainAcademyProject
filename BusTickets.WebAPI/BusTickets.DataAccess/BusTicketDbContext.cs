@@ -42,6 +42,31 @@ namespace BusTickets.DataAccess
                 .HasForeignKey(s => s.ArrivalStationID)
                 .HasConstraintName("ArrivalBusStation_fk")
                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Ticket>().HasOne(s => s.JourneyT)
+                .WithMany(s => s.JourneyT)
+                .HasForeignKey(s => s.JourneyID)
+                .HasConstraintName("JourneyID_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Ticket>().HasOne(s => s.DriverT)
+                .WithMany(s => s.DriverT)
+                .HasForeignKey(s => s.DriverID)
+                .HasConstraintName("DriverID_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Ticket>().HasOne(s => s.BusT)
+                .WithMany(s => s.BusT)
+                .HasForeignKey(s => s.BusID)
+                .HasConstraintName("BusID_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Ticket>().HasOne(s => s.CityFromT)
+                .WithMany(s => s.CityFromT)
+                .HasForeignKey(s => s.CityFromID)
+                .HasConstraintName("CityFromID_fk")
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Ticket>().HasOne(s => s.CityToT)
+                .WithMany(s => s.CityToT)
+                .HasForeignKey(s => s.CityToID)
+                .HasConstraintName("CityToID_fk")
+                .OnDelete(DeleteBehavior.Restrict);
             base.OnModelCreating(modelBuilder);
         }
     }

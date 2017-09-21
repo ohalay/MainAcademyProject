@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusTickets.DataAccess
 {
@@ -15,5 +16,7 @@ namespace BusTickets.DataAccess
 
         [MaxLength(40)]
         public string Address { get; set; }
+
+        public ICollection<Ticket> DriverT { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusTickets.DataAccess
@@ -16,5 +17,7 @@ namespace BusTickets.DataAccess
 
         [ForeignKey(nameof(BusTypeID))]
         public BusType BusType { get; set; }
+
+        public ICollection<Ticket> BusT { get; set; }
     }
 }

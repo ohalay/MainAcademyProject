@@ -15,6 +15,14 @@ namespace BusTickets.DataAccess
 
         public virtual DbSet<Journey> Journeys { get; set; }
 
+        public virtual DbSet<Driver> Drivers { get; set; } ////S
+
+        public virtual DbSet<Review> Reviews { get; set; } ////S
+
+        public virtual DbSet<Bus> Bus { get; set; } ////C
+
+        public virtual DbSet<BusType> BusType { get; set; } ////C
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connection = @"Server=.;Database=BusTicket;Trusted_Connection=True;";

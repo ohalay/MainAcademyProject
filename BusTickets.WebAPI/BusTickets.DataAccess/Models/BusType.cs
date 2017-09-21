@@ -13,6 +13,6 @@ namespace BusTickets.DataAccess
 
         public string Description { get; set; }
 
-        public ICollection<Bus> Bus { get; set; }
+        public ICollection<Bus> Buses { get; set; }
     }
 }

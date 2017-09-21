@@ -18,9 +18,9 @@ namespace BusTickets.DataAccess
 
         public virtual DbSet<Review> Reviews { get; set; } ////S
 
-        public virtual DbSet<Bus> Bus { get; set; } ////C
+        public virtual DbSet<Bus> Buses { get; set; } ////C
 
-        public virtual DbSet<BusType> BusType { get; set; } ////C
+        public virtual DbSet<BusType> BusTypes { get; set; } ////C
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

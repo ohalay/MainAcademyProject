@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26906.1
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTickets.WebAPI", "BusTickets.WebAPI\BusTickets.WebAPI.csproj", "{303CD08C-501E-47C2-9B1C-30B8BFE00BC8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTickets.DataAccess", "BusTickets.DataAccess\BusTickets.DataAccess.csproj", "{424402B3-7E2B-4E83-9807-2DBE10824D73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTickets.BusinessServices", "BusTickets.BusinessServices\BusTickets.BusinessServices.csproj", "{529BE3C5-8EAF-4782-88C0-7D07D606056D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTickets.BusinessServices", "BusTickets.BusinessServices\BusTickets.BusinessServices.csproj", "{529BE3C5-8EAF-4782-88C0-7D07D606056D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTickets.BusinessServices.UnitTests", "BusTickets.BusinessServices.UnitTests\BusTickets.BusinessServices.UnitTests.csproj", "{0CC8037E-C1C7-447F-AE09-B609C5583D3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTickets.BusinessServices.UnitTests", "BusTickets.BusinessServices.UnitTests\BusTickets.BusinessServices.UnitTests.csproj", "{0CC8037E-C1C7-447F-AE09-B609C5583D3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

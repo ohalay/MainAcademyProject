@@ -6,18 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.BusinessServices.Services
 {
-    public class CityService : BaseService, ICityService
+    public class BusStopService : BaseService, IBusStopService
     {
-        public CityService(IBusTicketDbContext contetx)
+        public BusStopService(IBusTicketDbContext contetx)
             : base(contetx)
         {
         }
 
-        public IList<CitiesNearby> GetCitiseNearby(int cityId)
+        public IList<BusStop> GetBusStop(int jorneyID)
         {
-            return this.Context.CitiesNearbys
+            return this.Context.BusStops
                 .AsNoTracking()
-                .Where(s => s.CityID == cityId)
+                .Where(s => s.JorneyID == jorneyID)
                 .ToList();
         }
     }

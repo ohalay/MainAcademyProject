@@ -1,5 +1,5 @@
 ﻿using BusTickets.BusinessServices.Services;
-using BusTickets.DataAccess.Models;
+using BusTickets.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BusTickets.BusinessServices.UnitTests.Services
@@ -14,13 +14,13 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             var cityId = 10;
             var citiesNaearby = new[]
             {
-                new CityNearby { CityID = 35 },
-                new CityNearby { CityID = cityId },
-                new CityNearby { CityID = 66 }
+                new CitiesNearby { CityID = 35 },
+                new CitiesNearby { CityID = cityId },
+                new CitiesNearby { CityID = 66 }
             };
 
-            var dbSet = this.GetDbSetMock<CityNearby>(citiesNaearby);
-            this.ContextMock.Setup(s => s.CitiesNearby).Returns(dbSet).Verifiable();
+            var dbSet = this.GetDbSetMock<CitiesNearby>(citiesNaearby);
+            this.ContextMock.Setup(s => s.CitiesNearbys).Returns(dbSet).Verifiable();
 
             // Act
             var service = new CityService(this.ContextMock.Object);

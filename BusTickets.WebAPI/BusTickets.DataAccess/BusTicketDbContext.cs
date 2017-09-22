@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BusTickets.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.DataAccess
 {
-    public class BusTicketDbContext : DbContext
+    public class BusTicketDbContext : DbContext, IBusTicketDbContext
     {
         public virtual DbSet<CitiesNearby> CitiesNearbys { get; set; }
 

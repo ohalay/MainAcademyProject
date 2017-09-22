@@ -5,6 +5,5 @@ namespace BusTickets.DataAccess
 {
     public interface IBusTicketDbContext
     {
-        DbSet<CityNearby> CitiesNearby { get; set; }
     }
 }

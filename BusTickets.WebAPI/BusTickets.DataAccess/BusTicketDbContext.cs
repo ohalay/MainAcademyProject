@@ -33,15 +33,15 @@ namespace BusTickets.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Journey>().HasOne(s => s.DepartureBusStation)
-                .WithMany(s => s.DepartureBusStation)
-                .HasForeignKey(s => s.DepartureStationID)
-                .HasConstraintName("DepartureBusStation_fk")
-                .OnDelete(DeleteBehavior.Restrict);
+             .WithMany(s => s.DepartureBusStation)
+             .HasForeignKey(s => s.DepartureStationID)
+             .HasConstraintName("DepartureID_fk")
+             .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Journey>().HasOne(s => s.ArrivalBusStation)
-                .WithMany(s => s.ArrivalBusStation)
-                .HasForeignKey(s => s.ArrivalStationID)
-                .HasConstraintName("ArrivalBusStation_fk")
-                .OnDelete(DeleteBehavior.Restrict);
+              .WithMany(s => s.ArrivalBusStation)
+              .HasForeignKey(s => s.ArrivalStationID)
+              .HasConstraintName("ArrivalID_fk")
+              .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Ticket>().HasOne(s => s.JourneyT)
                 .WithMany(s => s.JourneyT)
                 .HasForeignKey(s => s.JourneyID)

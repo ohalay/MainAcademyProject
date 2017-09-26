@@ -14,9 +14,9 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             var jorneyID = 5;
             var busStop = new[]
             {
-                new BusStop { JorneyID = 23 },
+                new BusStop { JorneyID = 73 },
                 new BusStop { JorneyID = jorneyID },
-                new BusStop { JorneyID = 23 }
+                new BusStop { JorneyID = 45 }
             };
             var dbSet = this.GetDbSetMock<BusStop>(busStop);
             this.ContextMock.Setup(s => s.BusStops).Returns(dbSet).Verifiable();

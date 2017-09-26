@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BusTickets.BusinessServices.Interfices;
+using BusTickets.BusinessServices.Services;
+using BusTickets.DataAccess;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +22,8 @@ namespace BusTickets.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<IBusTicketDbContext, BusTicketDbContext>();
+            services.AddTransient<IBusStopService, BusStopService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

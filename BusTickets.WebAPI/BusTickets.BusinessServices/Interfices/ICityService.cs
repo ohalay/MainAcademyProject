@@ -1,7 +1,5 @@
-﻿namespace BusTickets.BusinessServices.Interfices
-{
-    using System.Collections.Generic;
-    using BusTickets.DataAccess;
+﻿using System.Collections.Generic;
+using BusTickets.DataAccess;
 
     public interface ICityService
     {

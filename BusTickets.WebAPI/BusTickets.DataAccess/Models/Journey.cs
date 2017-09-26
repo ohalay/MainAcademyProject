@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusTickets.DataAccess
 {
@@ -19,10 +20,10 @@ namespace BusTickets.DataAccess
 
         public DateTime ArrivalTime { get; set; }
 
-        ////[ForeignKey(nameof(DepartureStationID))]
+        [ForeignKey(nameof(DepartureStationID))]
         public BusStation DepartureBusStation { get; set; }
 
-        ////[ForeignKey(nameof(ArrivalStationID))]
+        [ForeignKey(nameof(ArrivalStationID))]
         public BusStation ArrivalBusStation { get; set; }
 
         public ICollection<Ticket> JourneyT { get; set; }

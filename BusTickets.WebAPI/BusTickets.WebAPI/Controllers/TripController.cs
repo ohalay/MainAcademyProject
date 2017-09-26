@@ -7,7 +7,7 @@ namespace BusTickets.WebAPI.Controllers
     public class TripController : Controller
     {
         [HttpGet]
-        public IActionResult Get([FromQuery]DateTime dateTime1, DateTime dateTime2)
+        public IActionResult Get([FromQuery]DateTime dateFrom, DateTime dateTo)
         {
             return this.Ok(10);
         }

@@ -2,7 +2,6 @@
 using System.Linq;
 using BusTickets.BusinessServices.Interfices;
 using BusTickets.DataAccess;
-using BusTickets.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.BusinessServices.Services
@@ -14,9 +13,9 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public IList<CityNearby> GetCitiseNearby(int cityId)
+        public IList<CitiesNearby> GetCitiseNearby(int cityId)
         {
-            return this.Context.CitiesNearby
+            return this.Context.CitiesNearbys
                 .AsNoTracking()
                 .Where(s => s.CityID == cityId)
                 .ToList();

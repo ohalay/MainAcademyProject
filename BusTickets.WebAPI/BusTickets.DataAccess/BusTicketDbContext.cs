@@ -1,5 +1,4 @@
-﻿using BusTickets.DataAccess.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.DataAccess
 {

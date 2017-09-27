@@ -24,6 +24,7 @@ namespace BusTickets.WebAPI
             services.AddMvc();
             services.AddScoped<IBusTicketDbContext, BusTicketDbContext>();
             services.AddTransient<IBusStopService, BusStopService>();
+            services.AddTransient<ITicketService, TicketService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

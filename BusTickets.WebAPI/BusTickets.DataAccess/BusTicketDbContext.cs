@@ -4,7 +4,7 @@ namespace BusTickets.DataAccess
 {
     public class BusTicketDbContext : DbContext, IBusTicketDbContext
     {
-        public virtual DbSet<CitiesNearby> CitiesNearbys { get; set; }
+        public virtual DbSet<Ticket> CitiesNearbys { get; set; }
 
         public virtual DbSet<City> Cities { get; set; }
 
@@ -21,6 +21,8 @@ namespace BusTickets.DataAccess
         public virtual DbSet<Bus> Buses { get; set; }
 
         public virtual DbSet<BusType> BusTypes { get; set; }
+
+        public virtual DbSet<Ticket> Tickets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

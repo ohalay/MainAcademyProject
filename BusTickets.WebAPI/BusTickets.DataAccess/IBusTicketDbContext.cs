@@ -4,7 +4,7 @@ namespace BusTickets.DataAccess
 {
     public interface IBusTicketDbContext
     {
-         DbSet<CitiesNearby> CitiesNearbys { get; set; }
+         DbSet<Ticket> CitiesNearbys { get; set; }
 
          DbSet<City> Cities { get; set; }
 
@@ -21,5 +21,7 @@ namespace BusTickets.DataAccess
          DbSet<Bus> Buses { get; set; }
 
          DbSet<BusType> BusTypes { get; set; }
+
+        DbSet<Ticket> Tickets { get; set; }
     }
 }

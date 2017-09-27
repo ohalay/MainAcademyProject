@@ -14,13 +14,13 @@ namespace BusTickets.DataAccess
 
         public virtual DbSet<Journey> Journeys { get; set; }
 
-        public virtual DbSet<Driver> Drivers { get; set; } ////S
+        public virtual DbSet<Driver> Drivers { get; set; }
 
-        public virtual DbSet<Review> Reviews { get; set; } ////S
+        public virtual DbSet<Review> Reviews { get; set; }
 
-        public virtual DbSet<Bus> Buses { get; set; } ////C
+        public virtual DbSet<Bus> Buses { get; set; }
 
-        public virtual DbSet<BusType> BusTypes { get; set; } ////C
+        public virtual DbSet<BusType> BusTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -42,28 +42,13 @@ namespace BusTickets.DataAccess
               .HasForeignKey(s => s.ArrivalStationID)
               .HasConstraintName("ArrivalID_fk")
               .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Ticket>().HasOne(s => s.JourneyT)
-                .WithMany(s => s.JourneyT)
-                .HasForeignKey(s => s.JourneyID)
-                .HasConstraintName("JourneyID_fk")
-                .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Ticket>().HasOne(s => s.DriverT)
-                .WithMany(s => s.DriverT)
-                .HasForeignKey(s => s.DriverID)
-                .HasConstraintName("DriverID_fk")
-                .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Ticket>().HasOne(s => s.BusT)
-                .WithMany(s => s.BusT)
-                .HasForeignKey(s => s.BusID)
-                .HasConstraintName("BusID_fk")
-                .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Ticket>().HasOne(s => s.CityFromT)
-                .WithMany(s => s.CityFromT)
+            modelBuilder.Entity<Ticket>().HasOne(s => s.CityFrom)
+                .WithMany(s => s.CityFrom)
                 .HasForeignKey(s => s.CityFromID)
                 .HasConstraintName("CityFromID_fk")
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Ticket>().HasOne(s => s.CityToT)
-                .WithMany(s => s.CityToT)
+            modelBuilder.Entity<Ticket>().HasOne(s => s.CityTo)
+                .WithMany(s => s.CityTo)
                 .HasForeignKey(s => s.CityToID)
                 .HasConstraintName("CityToID_fk")
                 .OnDelete(DeleteBehavior.Restrict);

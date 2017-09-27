@@ -26,6 +26,6 @@ namespace BusTickets.DataAccess
         [ForeignKey(nameof(ArrivalStationID))]
         public BusStation ArrivalBusStation { get; set; }
 
-        public ICollection<Ticket> JourneyT { get; set; }
+        public ICollection<Ticket> TicketJourney { get; set; }
     }
 }

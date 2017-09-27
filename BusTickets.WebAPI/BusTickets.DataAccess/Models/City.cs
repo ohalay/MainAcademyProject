@@ -19,8 +19,8 @@ namespace BusTickets.DataAccess
 
         public ICollection<CitiesNearby> CitiesNearbys { get; set; }
 
-        public ICollection<Ticket> CityFromT { get; set; }
+        public ICollection<Ticket> CityFrom { get; set; }
 
-        public ICollection<Ticket> CityToT { get; set; }
+        public ICollection<Ticket> CityTo { get; set; }
     }
 }

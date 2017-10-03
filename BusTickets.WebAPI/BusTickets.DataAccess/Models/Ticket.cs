@@ -20,14 +20,17 @@ namespace BusTickets.DataAccess
 
         public int CityToID { get; set; }
 
-        public Journey JourneyT { get; set; }
+        [ForeignKey(nameof(JourneyID))]
+        public Journey TicketJourney { get; set; }
 
-        public Driver DriverT { get; set; }
+        [ForeignKey(nameof(DriverID))]
+        public Driver TicketDriver { get; set; }
 
-        public Bus BusT { get; set; }
+        [ForeignKey(nameof(BusID))]
+        public Bus TicketBus { get; set; }
 
-        public City CityFromT { get; set; }
+        public City CityFrom { get; set; }
 
-        public City CityToT { get; set; }
+        public City CityTo { get; set; }
     }
 }

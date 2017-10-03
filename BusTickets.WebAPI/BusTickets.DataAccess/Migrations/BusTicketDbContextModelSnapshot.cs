@@ -62,6 +62,12 @@ namespace BusTicket.Migrations
 
                     b.Property<int>("CityID");
 
+                    b.Property<int>("Distance");
+
+                    b.Property<int>("JorneyID");
+
+                    b.Property<int?>("JourneyID");
+
                     b.Property<double>("Price");
 
                     b.Property<int>("Time");
@@ -69,6 +75,8 @@ namespace BusTicket.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("CityID");
+
+                    b.HasIndex("JourneyID");
 
                     b.ToTable("BusStops");
                 });
@@ -130,7 +138,7 @@ namespace BusTicket.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(20);
 
-                    b.Property<string>("Phone_Number")
+                    b.Property<string>("PhoneNumber")
                         .HasMaxLength(20);
 
                     b.HasKey("ID");
@@ -172,7 +180,7 @@ namespace BusTicket.Migrations
                     b.Property<string>("Explanation")
                         .HasMaxLength(50);
 
-                    b.Property<int>("Number_Of_Seats");
+                    b.Property<int>("NumberOfSeats");
 
                     b.Property<int>("Opinion");
 
@@ -237,6 +245,10 @@ namespace BusTicket.Migrations
                         .WithMany("BusStops")
                         .HasForeignKey("CityID")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BusTickets.DataAccess.Journey", "Journey")
+                        .WithMany()
+                        .HasForeignKey("JourneyID");
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.CitiesNearby", b =>
@@ -252,13 +264,13 @@ namespace BusTicket.Migrations
                     b.HasOne("BusTickets.DataAccess.BusStation", "ArrivalBusStation")
                         .WithMany("ArrivalBusStation")
                         .HasForeignKey("ArrivalStationID")
-                        .HasConstraintName("ArrivalBusStation_fk")
+                        .HasConstraintName("ArrivalID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("BusTickets.DataAccess.BusStation", "DepartureBusStation")
                         .WithMany("DepartureBusStation")
                         .HasForeignKey("DepartureStationID")
-                        .HasConstraintName("DepartureBusStation_fk")
+                        .HasConstraintName("DepartureID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
@@ -272,35 +284,32 @@ namespace BusTicket.Migrations
 
             modelBuilder.Entity("BusTickets.DataAccess.Ticket", b =>
                 {
-                    b.HasOne("BusTickets.DataAccess.Bus", "BusT")
-                        .WithMany("BusT")
+                    b.HasOne("BusTickets.DataAccess.Bus", "TicketBus")
+                        .WithMany("TicketBus")
                         .HasForeignKey("BusID")
-                        .HasConstraintName("BusID_fk")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BusTickets.DataAccess.City", "CityFromT")
-                        .WithMany("CityFromT")
+                    b.HasOne("BusTickets.DataAccess.City", "CityFrom")
+                        .WithMany("CityFrom")
                         .HasForeignKey("CityFromID")
                         .HasConstraintName("CityFromID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("BusTickets.DataAccess.City", "CityToT")
-                        .WithMany("CityToT")
+                    b.HasOne("BusTickets.DataAccess.City", "CityTo")
+                        .WithMany("CityTo")
                         .HasForeignKey("CityToID")
                         .HasConstraintName("CityToID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("BusTickets.DataAccess.Driver", "DriverT")
-                        .WithMany("DriverT")
+                    b.HasOne("BusTickets.DataAccess.Driver", "TicketDriver")
+                        .WithMany("TicketDriver")
                         .HasForeignKey("DriverID")
-                        .HasConstraintName("DriverID_fk")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BusTickets.DataAccess.Journey", "JourneyT")
-                        .WithMany("JourneyT")
+                    b.HasOne("BusTickets.DataAccess.Journey", "TicketJourney")
+                        .WithMany("TicketJourney")
                         .HasForeignKey("JourneyID")
-                        .HasConstraintName("JourneyID_fk")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

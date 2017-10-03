@@ -12,11 +12,11 @@ namespace BusTickets.DataAccess
         public string Name { get; set; }
 
         [MaxLength(20)]
-        public string Phone_Number { get; set; }
+        public string PhoneNumber { get; set; }
 
         [MaxLength(40)]
         public string Address { get; set; }
 
-        public ICollection<Ticket> DriverT { get; set; }
+        public ICollection<Ticket> TicketDriver { get; set; }
     }
 }

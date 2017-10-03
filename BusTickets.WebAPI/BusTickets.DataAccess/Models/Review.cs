@@ -8,7 +8,7 @@ namespace BusTickets.DataAccess
         [Key]
         public int ID { get; set; }
 
-        public int Number_Of_Seats { get; set; }
+        public int NumberOfSeats { get; set; }
 
         public int DriverID { get; set; }
 

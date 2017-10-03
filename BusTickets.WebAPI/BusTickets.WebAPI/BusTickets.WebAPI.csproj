@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BusTickets.BusinessServices\BusTickets.BusinessServices.csproj" />
     <ProjectReference Include="..\BusTickets.DataAccess\BusTickets.DataAccess.csproj" />
   </ItemGroup>
   

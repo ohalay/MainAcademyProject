@@ -5,32 +5,32 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BusTickets.BusinessServices.UnitTests.Services
 {
     [TestClass]
-    public class CityServiceTests : BaseServiceTest
+    public class TicketServiceTests : BaseServiceTest
     {
         [TestMethod]
-        public void GetCitiseNearby_WithCityId_ShouldFiltered()
+        public void GetTicket_WithJourneyId_ShouldFiltered()
         {
             // Arrange
-            var cityId = 10;
-            var citiesNaearby = new[]
+            var jorneyId = 10;
+            var ticket = new[]
             {
                 new Ticket { JourneyID = 35 },
-                new Ticket { JourneyID = cityId },
+                new Ticket { JourneyID = jorneyId },
                 new Ticket { JourneyID = 66 }
             };
 
-            var dbSet = this.GetDbSetMock<Ticket>(citiesNaearby);
-            this.ContextMock.Setup(s => s.CitiesNearbys).Returns(dbSet).Verifiable();
+            var dbSet = this.GetDbSetMock<Ticket>(ticket);
+            this.ContextMock.Setup(s => s.Tickets).Returns(dbSet).Verifiable();
 
             // Act
-            var service = new CityService(this.ContextMock.Object);
-            var res = service.GetCitiseNearby(cityId);
+            var service = new TicketService(this.ContextMock.Object);
+            var res = service.GetTicket(jorneyId);
 
             // Assert
             this.ContextMock.Verify();
             Assert.IsNotNull(res);
             Assert.AreEqual(1, res.Count);
-            Assert.AreEqual(cityId, res[0].JourneyID);
+            Assert.AreEqual(jorneyId, res[0].JourneyID);
         }
     }
 }

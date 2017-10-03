@@ -18,10 +18,8 @@ namespace BusTickets.DataAccess
 
         public double Price { get; set; }
 
-        [ForeignKey(nameof(CityID))]
         public City City { get; set; }
 
-        [ForeignKey(nameof(JorneyID))]
         public Journey Journey { get; set; }
     }
 }

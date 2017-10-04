@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BusTickets.BusinessServices.UnitTests.Services
 {
     [TestClass]
-    public class CityServiceTests : BaseServiceTest
+    public class CityNearbyServiceTests : BaseServiceTest
     {
         [TestMethod]
         public void GetCitiseNearby_WithCityId_ShouldFiltered()
@@ -23,7 +23,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             this.ContextMock.Setup(s => s.CitiesNearbys).Returns(dbSet).Verifiable();
 
             // Act
-            var service = new CityService(this.ContextMock.Object);
+            var service = new CityNearbyService(this.ContextMock.Object);
             var res = service.GetCitiseNearby(cityId);
 
             // Assert

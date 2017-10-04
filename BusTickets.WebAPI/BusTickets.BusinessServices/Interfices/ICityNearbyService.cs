@@ -3,7 +3,7 @@ using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
-    public interface ICityService
+    public interface ICityNearbyService
     {
         IList<Ticket> GetCitiseNearby(int cityId);
     }

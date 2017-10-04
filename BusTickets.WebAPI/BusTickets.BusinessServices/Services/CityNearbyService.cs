@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.BusinessServices.Services
 {
-    public class CityService : BaseService, ICityService
+    public class CityNearbyService : BaseService, ICityNearbyService
     {
-        public CityService(IBusTicketDbContext contetx)
+        public CityNearbyService(IBusTicketDbContext contetx)
             : base(contetx)
         {
         }

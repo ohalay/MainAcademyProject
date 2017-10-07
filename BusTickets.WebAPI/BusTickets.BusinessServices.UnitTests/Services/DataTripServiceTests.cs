@@ -35,7 +35,7 @@
             // Assert
             this.ContextMock.Verify();
             Assert.IsNotNull(res);
-            Assert.AreEqual(1, res.Count);
+            Assert.AreEqual(3, res.Count);
             Assert.AreEqual(dateFrom, res[0].DepartureTime);
         }
     }

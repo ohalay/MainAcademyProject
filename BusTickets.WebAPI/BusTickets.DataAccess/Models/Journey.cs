@@ -14,6 +14,10 @@ namespace BusTickets.DataAccess
 
         public int ArrivalStationID { get; set; }
 
+        public int DriverID { get; set; }
+
+        public int BusID { get; set; }
+
         public float Distance { get; set; }
 
         public DateTime DepartureTime { get; set; }
@@ -25,6 +29,12 @@ namespace BusTickets.DataAccess
 
         [ForeignKey(nameof(ArrivalStationID))]
         public BusStation ArrivalBusStation { get; set; }
+
+        [ForeignKey(nameof(DriverID))]
+        public Driver JourneyDriver { get; set; }
+
+        [ForeignKey(nameof(BusID))]
+        public Bus JourneyBus { get; set; }
 
         public ICollection<Ticket> TicketJourney { get; set; }
     }

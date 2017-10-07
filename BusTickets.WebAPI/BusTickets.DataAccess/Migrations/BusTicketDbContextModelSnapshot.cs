@@ -103,13 +103,17 @@ namespace BusTicket.Migrations
 
                     b.Property<int>("CityID");
 
+                    b.Property<int>("CityNearbyID");
+
                     b.Property<float>("Distance");
 
                     b.HasKey("ID");
 
                     b.HasIndex("CityID");
 
-                    b.ToTable("CitiesNearbys");
+                    b.HasIndex("CityNearbyID");
+
+                    b.ToTable("CitiesNearby");
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.City", b =>
@@ -155,17 +159,25 @@ namespace BusTicket.Migrations
 
                     b.Property<DateTime>("ArrivalTime");
 
+                    b.Property<int>("BusID");
+
                     b.Property<int>("DepartureStationID");
 
                     b.Property<DateTime>("DepartureTime");
 
                     b.Property<float>("Distance");
 
+                    b.Property<int>("DriverID");
+
                     b.HasKey("ID");
 
                     b.HasIndex("ArrivalStationID");
 
+                    b.HasIndex("BusID");
+
                     b.HasIndex("DepartureStationID");
+
+                    b.HasIndex("DriverID");
 
                     b.ToTable("Journeys");
                 });
@@ -196,13 +208,11 @@ namespace BusTicket.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("BusID");
-
                     b.Property<int>("CityFromID");
 
-                    b.Property<int>("CityToID");
+                    b.Property<int?>("CityID");
 
-                    b.Property<int>("DriverID");
+                    b.Property<int>("CityToID");
 
                     b.Property<int>("JourneyID");
 
@@ -210,13 +220,11 @@ namespace BusTicket.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BusID");
-
                     b.HasIndex("CityFromID");
 
-                    b.HasIndex("CityToID");
+                    b.HasIndex("CityID");
 
-                    b.HasIndex("DriverID");
+                    b.HasIndex("CityToID");
 
                     b.HasIndex("JourneyID");
 
@@ -254,9 +262,16 @@ namespace BusTicket.Migrations
             modelBuilder.Entity("BusTickets.DataAccess.CitiesNearby", b =>
                 {
                     b.HasOne("BusTickets.DataAccess.City", "City")
-                        .WithMany("CitiesNearbys")
+                        .WithMany("Cities")
                         .HasForeignKey("CityID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("CityID_fk")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BusTickets.DataAccess.City", "CityNearby")
+                        .WithMany("CitiesNearby")
+                        .HasForeignKey("CityNearbyID")
+                        .HasConstraintName("CityNearbyID_fk")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.Journey", b =>
@@ -267,11 +282,21 @@ namespace BusTicket.Migrations
                         .HasConstraintName("ArrivalID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("BusTickets.DataAccess.Bus", "JourneyBus")
+                        .WithMany("JourneyBus")
+                        .HasForeignKey("BusID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("BusTickets.DataAccess.BusStation", "DepartureBusStation")
                         .WithMany("DepartureBusStation")
                         .HasForeignKey("DepartureStationID")
                         .HasConstraintName("DepartureID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BusTickets.DataAccess.Driver", "JourneyDriver")
+                        .WithMany("JourneyDriver")
+                        .HasForeignKey("DriverID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.Review", b =>
@@ -284,27 +309,21 @@ namespace BusTicket.Migrations
 
             modelBuilder.Entity("BusTickets.DataAccess.Ticket", b =>
                 {
-                    b.HasOne("BusTickets.DataAccess.Bus", "TicketBus")
-                        .WithMany("TicketBus")
-                        .HasForeignKey("BusID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("BusTickets.DataAccess.City", "CityFrom")
                         .WithMany("CityFrom")
                         .HasForeignKey("CityFromID")
                         .HasConstraintName("CityFromID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("BusTickets.DataAccess.City")
+                        .WithMany("CitiesNearbys")
+                        .HasForeignKey("CityID");
+
                     b.HasOne("BusTickets.DataAccess.City", "CityTo")
                         .WithMany("CityTo")
                         .HasForeignKey("CityToID")
                         .HasConstraintName("CityToID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("BusTickets.DataAccess.Driver", "TicketDriver")
-                        .WithMany("TicketDriver")
-                        .HasForeignKey("DriverID")
-                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BusTickets.DataAccess.Journey", "TicketJourney")
                         .WithMany("TicketJourney")

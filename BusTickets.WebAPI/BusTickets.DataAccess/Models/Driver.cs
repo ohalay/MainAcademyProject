@@ -17,6 +17,6 @@ namespace BusTickets.DataAccess
         [MaxLength(40)]
         public string Address { get; set; }
 
-        public ICollection<Ticket> TicketDriver { get; set; }
+        public ICollection<Journey> JourneyDriver { get; set; }
     }
 }

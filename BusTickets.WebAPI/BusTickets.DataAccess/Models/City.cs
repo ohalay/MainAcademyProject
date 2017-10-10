@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusTickets.DataAccess
 {
@@ -17,8 +18,6 @@ namespace BusTickets.DataAccess
         public ICollection<BusStop> BusStops { get; set; }
 
         public ICollection<BusStation> BusStations { get; set; }
-
-        public ICollection<Ticket> CitiesNearbys { get; set; }
 
         public ICollection<CitiesNearby> Cities { get; set; }
 

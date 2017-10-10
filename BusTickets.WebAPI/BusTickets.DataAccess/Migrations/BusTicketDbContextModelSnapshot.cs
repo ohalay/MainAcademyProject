@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace BusTicket.Migrations
+namespace BusTickets.DataAccess.Migrations
 {
     [DbContext(typeof(BusTicketDbContext))]
     partial class BusTicketDbContextModelSnapshot : ModelSnapshot
@@ -210,8 +210,6 @@ namespace BusTicket.Migrations
 
                     b.Property<int>("CityFromID");
 
-                    b.Property<int?>("CityID");
-
                     b.Property<int>("CityToID");
 
                     b.Property<int>("JourneyID");
@@ -221,8 +219,6 @@ namespace BusTicket.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("CityFromID");
-
-                    b.HasIndex("CityID");
 
                     b.HasIndex("CityToID");
 
@@ -314,10 +310,6 @@ namespace BusTicket.Migrations
                         .HasForeignKey("CityFromID")
                         .HasConstraintName("CityFromID_fk")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("BusTickets.DataAccess.City")
-                        .WithMany("CitiesNearbys")
-                        .HasForeignKey("CityID");
 
                     b.HasOne("BusTickets.DataAccess.City", "CityTo")
                         .WithMany("CityTo")

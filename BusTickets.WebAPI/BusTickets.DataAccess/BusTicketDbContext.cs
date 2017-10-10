@@ -44,6 +44,7 @@ namespace BusTickets.DataAccess
             .HasForeignKey(s => s.CityID)
             .HasConstraintName("CityID_fk")
             .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<Journey>().HasOne(s => s.DepartureBusStation)
              .WithMany(s => s.DepartureBusStation)
              .HasForeignKey(s => s.DepartureStationID)

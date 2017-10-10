@@ -115,7 +115,7 @@ values
 ('Kyiv/Shevchenka,23','Ivan','380216789008'),
 ('Kyiv/Kozacika,23','Petro','380216789008'),
 ('Lviv/Himichna,55','Pavlo','380548778899')
-insert into Journeys(BusID,DriverID,DepartureStationID,ArrivalStationID ,DepartureTime,ArrivalTime,Distance)
+insert into Journeys(BusID,DriverID,DepartureStationID,DepartureTime,ArrivalTime,Distance)
 values
 ('2','1','1','4','2017-10-11 11:30:00.000 AM','2017-10-12 04:30:00.000 AM','988.7'),
 ('1','3','5','13','2017-10-13 09:30:00.000 AM','2017-10-13 05:40:00.000 PM','344.3'),

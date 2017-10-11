@@ -14,12 +14,12 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             var cityId = 10;
             var citiesNaearby = new[]
             {
-                new Ticket { JourneyID = 35 },
-                new Ticket { JourneyID = cityId },
-                new Ticket { JourneyID = 66 }
+                new CitiesNearby { CityID = 35 },
+                new CitiesNearby { CityID = cityId },
+                new CitiesNearby { CityID = 66 }
             };
 
-            var dbSet = this.GetDbSetMock<Ticket>(citiesNaearby);
+            var dbSet = this.GetDbSetMock<CitiesNearby>(citiesNaearby);
             this.ContextMock.Setup(s => s.CitiesNearbys).Returns(dbSet).Verifiable();
 
             // Act
@@ -30,7 +30,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             this.ContextMock.Verify();
             Assert.IsNotNull(res);
             Assert.AreEqual(1, res.Count);
-            Assert.AreEqual(cityId, res[0].JourneyID);
+            Assert.AreEqual(cityId, res[0].CityID);
         }
     }
 }

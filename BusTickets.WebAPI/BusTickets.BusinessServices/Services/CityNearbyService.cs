@@ -13,11 +13,11 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public IList<Ticket> GetCitiseNearby(int cityId)
+        public IList<CitiesNearby> GetCitiseNearby(int cityId)
         {
             return this.Context.CitiesNearbys
                 .AsNoTracking()
-                .Where(s => s.JourneyID == cityId)
+                .Where(s => s.CityID == cityId)
                 .ToList();
         }
     }

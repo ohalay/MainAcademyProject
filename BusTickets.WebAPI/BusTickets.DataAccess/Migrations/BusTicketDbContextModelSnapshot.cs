@@ -113,7 +113,7 @@ namespace BusTickets.DataAccess.Migrations
 
                     b.HasIndex("CityNearbyID");
 
-                    b.ToTable("CitiesNearby");
+                    b.ToTable("CitiesNearbys");
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.City", b =>
@@ -224,7 +224,7 @@ namespace BusTickets.DataAccess.Migrations
 
                     b.HasIndex("JourneyID");
 
-                    b.ToTable("Ticket");
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.Bus", b =>

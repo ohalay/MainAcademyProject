@@ -5,6 +5,6 @@ namespace BusTickets.BusinessServices.Interfices
 {
     public interface ICityNearbyService
     {
-        IList<Ticket> GetCitiseNearby(int cityId);
+        IList<CitiesNearby> GetCitiseNearby(int cityId);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BusTickets.BusinessServices.Interfices;
 using BusTickets.BusinessServices.Services;
 using BusTickets.DataAccess;
+using BusTickets.WebAPI.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,7 @@ namespace BusTickets.WebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddLog4Net();
             app.UseMvc();
         }
     }

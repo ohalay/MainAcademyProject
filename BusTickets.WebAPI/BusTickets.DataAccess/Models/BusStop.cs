@@ -10,7 +10,7 @@ namespace BusTickets.DataAccess
 
         public int CityID { get; set; }
 
-        public int JorneyID { get; set; }
+        public int JourneyID { get; set; }
 
         public int Distance { get; set; }
 

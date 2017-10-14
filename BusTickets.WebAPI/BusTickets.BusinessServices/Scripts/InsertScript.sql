@@ -36,7 +36,7 @@ values
 ('Korosten','65454'),
 ('Boruspil','60160')
 
- insert into CitiesNearby(CityID,CityNearbyID,Distance)
+ insert into CitiesNearbys(CityID,CityNearbyID,Distance)
 values
 ('1','33','71.6'),
 ('1','30','85.7'),

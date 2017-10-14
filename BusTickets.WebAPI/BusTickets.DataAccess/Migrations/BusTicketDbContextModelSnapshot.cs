@@ -64,9 +64,7 @@ namespace BusTickets.DataAccess.Migrations
 
                     b.Property<int>("Distance");
 
-                    b.Property<int>("JorneyID");
-
-                    b.Property<int?>("JourneyID");
+                    b.Property<int>("JourneyID");
 
                     b.Property<double>("Price");
 
@@ -252,7 +250,8 @@ namespace BusTickets.DataAccess.Migrations
 
                     b.HasOne("BusTickets.DataAccess.Journey", "Journey")
                         .WithMany()
-                        .HasForeignKey("JourneyID");
+                        .HasForeignKey("JourneyID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BusTickets.DataAccess.CitiesNearby", b =>

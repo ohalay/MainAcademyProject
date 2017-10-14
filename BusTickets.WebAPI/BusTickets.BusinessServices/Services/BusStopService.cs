@@ -13,11 +13,11 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public IList<BusStop> GetBusStop(int jorneyID)
+        public IList<BusStop> GetBusStop(int journeyID)
         {
             return this.Context.BusStops
                 .AsNoTracking()
-                .Where(s => s.JorneyID == jorneyID)
+                .Where(s => s.JourneyID == journeyID)
                 .ToList();
         }
     }

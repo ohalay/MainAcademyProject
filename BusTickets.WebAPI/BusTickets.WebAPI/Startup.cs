@@ -45,6 +45,7 @@ namespace BusTickets.WebAPI
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseExceptionHandler();
             app.UseMvc();
         }
     }

@@ -32,14 +32,6 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             dbset.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(() => queryable.GetEnumerator());
             dbset.Setup(d => d.Add(It.IsAny<T>())).Callback<T>((s) => sourceList.Add(s));
             dbset.Setup(m => m.Remove(It.IsAny<T>())).Callback<T>((m) => sourceList.Remove(m));
-            dbset.Setup(d => d.AddRange(It.IsAny<IEnumerable<T>>())).Callback<IEnumerable<T>>((s) =>
-            {
-                var collection = s as List<T> ?? s.ToList();
-                foreach (var item in collection)
-                {
-                    sourceList.Add(item);
-                }
-            });
             dbset.Setup(m => m.RemoveRange(It.IsAny<IEnumerable<T>>())).Callback<IEnumerable<T>>((m) =>
             {
                 var collection = m as List<T> ?? m.ToList();

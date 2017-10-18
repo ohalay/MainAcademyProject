@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BusTickets.BusinessServices.UnitTests.Services
 {
     [TestClass]
-    public class CitySearchServiceTest : BaseServiceTest
+    public class CityServiceTest : BaseServiceTest
     {
         [TestMethod]
         public void GetCity_WithTheSameFirstLeter_ShouldFiltered()
@@ -25,7 +25,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             this.ContextMock.Setup(s => s.Cities).Returns(dbSet).Verifiable();
 
             //// Act
-            var service = new CitySearchService(this.ContextMock.Object);
+            var service = new CityService(this.ContextMock.Object);
             var res = service.GetCity("L");
 
             ////Assert

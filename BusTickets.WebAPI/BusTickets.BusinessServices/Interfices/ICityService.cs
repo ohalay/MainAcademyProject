@@ -5,7 +5,7 @@ using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
-    public interface ICitySearchService
+    public interface ICityService
     {
       IList<City> GetCity(string startwithcity);
     }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BusTickets.BusinessServices.Services;
+using BusTickets.BusinessServices.UnitTests.Services.Base;
 using BusTickets.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -31,7 +32,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             this.ContextMock.Verify();
             Assert.IsNotNull(resAsync);
             Assert.AreEqual(1, resAsync.Count);
-            Assert.AreEqual(cityId, resAsync[1].CityNearbyID);
+            Assert.AreEqual(cityId, resAsync[0].CityID);
         }
     }
 }

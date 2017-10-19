@@ -3,15 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Threading.Tasks;
     using BusTickets.BusinessServices.Services;
     using BusTickets.DataAccess;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class DataTripServiceTests : BaseServiceTest
+    public class TripServiceTests : BaseServiceTest
     {
         [TestMethod]
-        public void GetTrips_WithDate_ShouldFiltered()
+        public async Task GetTrips_WithDate_ShouldFiltered()
         {
             // Arrange
             var dateFrom = new DateTime(2017, 10, 01);
@@ -29,8 +30,8 @@
             this.ContextMock.Setup(s => s.Journeys).Returns(dbSet).Verifiable();
 
             // Act
-            var service = new DataTripService(this.ContextMock.Object);
-            var res = service.GetJourneyByDate(dateTo, dateFrom);
+            var service = new TripService(this.ContextMock.Object);
+            var res = await service.GetJourneyByDate(dateTo, dateFrom);
 
             // Assert
             this.ContextMock.Verify();

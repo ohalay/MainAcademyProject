@@ -1,4 +1,6 @@
-﻿using BusTickets.BusinessServices.Services;
+﻿using System.Threading.Tasks;
+using BusTickets.BusinessServices.Services;
+using BusTickets.BusinessServices.UnitTests.Services.Base;
 using BusTickets.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,7 +10,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
     public class CityNearbyServiceTests : BaseServiceTest
     {
         [TestMethod]
-        public void GetCitiseNearby_WithCityId_ShouldFiltered()
+        public async Task GetCitiseNearby_WithCityId_ShouldFiltered()
         {
             // Arrange
             var cityId = 10;
@@ -24,13 +26,13 @@ namespace BusTickets.BusinessServices.UnitTests.Services
 
             // Act
             var service = new CityNearbyService(this.ContextMock.Object);
-            var res = service.GetCitiseNearby(cityId);
+            var resAsync = await service.GetCitiseNearbyAsync(cityId);
 
             // Assert
             this.ContextMock.Verify();
-            Assert.IsNotNull(res);
-            Assert.AreEqual(1, res.Count);
-            Assert.AreEqual(cityId, res[0].CityID);
+            Assert.IsNotNull(resAsync);
+            Assert.AreEqual(1, resAsync.Count);
+            Assert.AreEqual(cityId, resAsync[0].CityID);
         }
     }
 }

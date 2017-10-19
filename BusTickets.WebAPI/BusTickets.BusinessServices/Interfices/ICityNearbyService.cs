@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
     public interface ICityNearbyService
     {
-        IList<CitiesNearby> GetCitiseNearby(int cityId);
+        Task<IList<CitiesNearby>> GetCitiseNearbyAsync(int cityId);
     }
 }

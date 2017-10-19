@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
-    public interface ICitySearchService
+    public interface ICityService
     {
-        IList<City> GetCity(string startwithcity);
+      IList<City> GetCity(string startwithcity);
     }
 }

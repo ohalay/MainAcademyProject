@@ -5,6 +5,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using BusTickets.BusinessServices.Services;
+    using BusTickets.BusinessServices.UnitTests.Services.Base;
     using BusTickets.DataAccess;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

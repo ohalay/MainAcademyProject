@@ -1,6 +1,7 @@
 ﻿using BusTickets.BusinessServices.Interfices;
 using BusTickets.BusinessServices.Services;
 using BusTickets.DataAccess;
+using BusTickets.WebAPI.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,14 +26,27 @@ namespace BusTickets.WebAPI
             services.AddScoped<IBusTicketDbContext, BusTicketDbContext>();
             services.AddTransient<IBusStopService, BusStopService>();
             services.AddTransient<ITicketService, TicketService>();
-            services.AddTransient<ICitySearchService, CitySearchService>();
+            services.AddTransient<ICityService, CityService>();
             services.AddTransient<ITripService, TripService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            ////app.UseDeveloperExceptionPage();
+            loggerFactory.AddLog4Net();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+                app.UseBrowserLink();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseExceptionHandler();
             app.UseMvc();
         }
     }

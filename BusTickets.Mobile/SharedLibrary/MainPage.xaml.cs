@@ -14,6 +14,7 @@ namespace SharedLibrary
         public MainPage()
         {
             InitializeComponent();
+           
         }
     }
 }

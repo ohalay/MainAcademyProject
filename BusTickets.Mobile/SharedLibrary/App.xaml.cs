@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SharedLibrary
 {
@@ -15,7 +9,7 @@ namespace SharedLibrary
         public App()
         {
             InitializeComponent();
-            MainPage = new SharedLibrary.MainPage();
+            MainPage = new SharedLibrary.Page1();
         }
 
         protected override void OnStart()

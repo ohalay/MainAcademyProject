@@ -2224,6 +2224,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-arm": {
@@ -4539,6 +4542,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-arm-aot": {
@@ -6890,6 +6896,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-x64": {
@@ -9214,6 +9223,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-x64-aot": {
@@ -11574,6 +11586,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-x86": {
@@ -13898,6 +13913,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10586/win10-x86-aot": {
@@ -16258,6 +16276,9 @@
           "build/netstandard1.0/Xamarin.Forms.props": {},
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
+      },
+      "SharedLibrary/1.0.0": {
+        "type": "project"
       }
     }
   },
@@ -26038,6 +26059,11 @@
         "xamarin.forms.2.4.0.18342.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "SharedLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../SharedLibrary/SharedLibrary.csproj",
+      "msbuildProject": "../../SharedLibrary/SharedLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -26052,12 +26078,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\kolya\\Source\\Repos\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
       "projectName": "BusTickets.Mobile.UWP",
-      "projectPath": "C:\\Users\\kolya\\Source\\Repos\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\kolya\\Source\\Repos\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\project.json",
+      "projectPath": "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\project.json",
       "packagesPath": "C:\\Users\\kolya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kolya\\Source\\Repos\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\obj\\",
+      "outputPath": "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\kolya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26066,6 +26092,15 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "uap10.0.10586": {
+          "projectReferences": {
+            "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\SharedLibrary\\SharedLibrary.csproj": {
+              "projectPath": "C:\\Users\\kolya\\Source\\TestTask\\BusTickets.Mobile\\SharedLibrary\\SharedLibrary.csproj"
+            }
+          }
+        }
       }
     },
     "dependencies": {

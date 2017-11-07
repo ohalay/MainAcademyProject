@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using SharedLibrary.ViewModel;
+using SharedLibrary.Views;
+using System.Diagnostics;
 
 using Xamarin.Forms;
 
@@ -8,8 +10,19 @@ namespace SharedLibrary
     {
         public App()
         {
-            InitializeComponent();
-            MainPage = new SharedLibrary.Page1();
+            MainPage = new NavigationPage(GetMainPage());
+        }
+        private static ViewModelLocator locator;
+        public static ViewModelLocator Locator
+        {
+            get
+            {
+                return locator ?? (locator = new ViewModelLocator());
+            }
+        }
+        public static Page GetMainPage()
+        {
+            return new MainPage();
         }
 
         protected override void OnStart()

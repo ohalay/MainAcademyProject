@@ -42,8 +42,6 @@ C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\bin\Debug\Xamarin
 C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.csproj.CoreCompileInputs.cache
 C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.App.xaml.g.cs
-C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.MainPage.xaml.g.cs
 C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.dll
 C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.pdb
-C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.Page1.xaml.g.cs
-C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.csprojResolveAssemblyReference.cache
+C:\Users\kolya\Source\TestTask\BusTickets.Mobile\SharedLibrary\obj\Debug\SharedLibrary.Views.MainPage.xaml.g.cs

@@ -7,8 +7,5 @@
         <Button Text="{Binding ClickCountFormatted}"  
                Command="{Binding IncrementCommand}"  
                VerticalOptions="Center" />
-        <Label BackgroundColor="Black"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
     </StackLayout>
 </ContentPage>  

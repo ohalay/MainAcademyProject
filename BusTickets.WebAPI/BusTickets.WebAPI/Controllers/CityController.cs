@@ -17,7 +17,7 @@ namespace BusTickets.WebAPI.Controllers
             this.cityService = cityService;
         }
 
-        [HttpGet("/cities/{startwithcity}")]
+        [HttpGet("cities/{startwithcity}")]
         public async Task<IList<City>> GetTheSameNameAsync(string startwithcity)
         {
             return await this.cityService.GetCityAsync(startwithcity);

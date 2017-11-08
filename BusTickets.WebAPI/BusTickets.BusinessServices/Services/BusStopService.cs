@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BusTickets.BusinessServices.Interfices;
 using BusTickets.DataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,12 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public IList<BusStop> GetBusStop(int journeyID)
+        public async Task<IList<BusStop>> GetBusStopAsync(int journeyID)
         {
-            return this.Context.BusStops
+            return await this.Context.BusStops
                 .AsNoTracking()
                 .Where(s => s.JourneyID == journeyID)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

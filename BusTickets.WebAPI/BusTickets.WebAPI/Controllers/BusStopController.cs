@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BusTickets.WebAPI.Controllers
 {
+    [Route("api/v1")]
     public class BusStopController : Controller
     {
         private IBusStopService busStopS;
@@ -12,10 +13,10 @@ namespace BusTickets.WebAPI.Controllers
             this.busStopS = busStopService;
         }
 
-        [Route("busStops/{id}")]
+        [HttpGet("busStops/{id}")]
         public IActionResult Get(int id)
         {
-            return this.Ok(this.busStopS.GetBusStop(id));
+            return this.Ok(this.busStopS.GetBusStopAsync(id));
         }
     }
 }

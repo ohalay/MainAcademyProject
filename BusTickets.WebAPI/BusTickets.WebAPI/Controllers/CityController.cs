@@ -7,23 +7,20 @@ using Microsoft.Extensions.Logging;
 
 namespace BusTickets.WebAPI.Controllers
 {
+    [Route("api/v1")]
     public class CityController : Controller
     {
-        public CityController(ILoggerFactory logger)
+        private ICityService cityService;
+
+        public CityController(ICityService cityService)
         {
-            logger.CreateLogger<CityController>().LogDebug("Controller");
-            ////this.cityService = cityService;
+            this.cityService = cityService;
         }
 
-        ////[Route("TheSameCityName")]
-        ////public async Task<IList<City>> GetTheSameNameAsync(string startwithcity)
-        ////{
-        ////    return await this.cityService.GetCityAsync(startwithcity);
-        ////}
-        [HttpGet("api/get")]
-        public int Get()
+        [HttpGet("/cities/{startwithcity}")]
+        public async Task<IList<City>> GetTheSameNameAsync(string startwithcity)
         {
-            return 12;
+            return await this.cityService.GetCityAsync(startwithcity);
         }
     }
 }

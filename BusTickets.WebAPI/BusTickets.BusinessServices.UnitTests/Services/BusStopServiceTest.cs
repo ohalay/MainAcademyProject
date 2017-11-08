@@ -1,4 +1,5 @@
-﻿using BusTickets.BusinessServices.Services;
+﻿using System.Threading.Tasks;
+using BusTickets.BusinessServices.Services;
 using BusTickets.BusinessServices.UnitTests.Services.Base;
 using BusTickets.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +10,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
     public class BusStopServiceTest : BaseServiceTest
     {
         [TestMethod]
-        public void GetBusStop_WithJorneyID_ShouldFiltered()
+        public async Task GetBusStop_WithJorneyID_ShouldFiltered()
         {
             // Arrange
             var journeyID = 5;
@@ -24,7 +25,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
 
             // Act
             var service = new BusStopService(this.ContextMock.Object);
-            var res = service.GetBusStop(journeyID);
+            var res = await service.GetBusStopAsync(journeyID);
 
             // Assert
             this.ContextMock.Verify();

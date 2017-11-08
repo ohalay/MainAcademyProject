@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BusTickets.WebAPI.Controllers
 {
-    [Route("api/v1/trip")]
+    [Route("api/v1")]
     public class TripController : Controller
     {
         private ITripService ticketServ;
@@ -14,10 +14,10 @@ namespace BusTickets.WebAPI.Controllers
             this.ticketServ = ticketService;
         }
 
-        [HttpGet]
+        [HttpGet("trips/{jorneyId}")]
         public IActionResult Get([FromQuery]DateTime dateFrom, [FromQuery]DateTime dateTo)
         {
-            return this.Ok(this.ticketServ.GetJourneyByDate(dateFrom, dateTo));
+            return this.Ok(this.ticketServ.GetJourneyByDateAsync(dateFrom, dateTo));
         }
     }
 }

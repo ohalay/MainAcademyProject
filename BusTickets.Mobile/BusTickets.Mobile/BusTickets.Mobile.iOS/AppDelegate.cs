@@ -23,7 +23,7 @@ namespace BusTickets.Mobile.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
-			LoadApplication (new BusTickets.Mobile.App ());
+			LoadApplication (new Shared.App ());
 
 			return base.FinishedLaunching (app, options);
 		}

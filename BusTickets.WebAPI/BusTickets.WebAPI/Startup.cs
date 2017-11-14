@@ -28,6 +28,13 @@ namespace BusTickets.WebAPI
             services.AddTransient<ITicketService, TicketService>();
             services.AddTransient<ICityService, CityService>();
             services.AddTransient<ITripService, TripService>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +54,7 @@ namespace BusTickets.WebAPI
             }
 
             app.UseExceptionHandler();
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }

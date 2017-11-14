@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BusTickets.BusinessServices.Interfices;
 using BusTickets.DataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +14,13 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public IList<City> GetCity(string starwithcity)
+        public async Task<IList<City>> GetCityAsync(string starwithcity)
         {
             {
-                return this.Context.Cities
+                return await this.Context.Cities
                     .AsNoTracking()
                     .Where(c => c.Name.StartsWith(starwithcity))
-                    .ToList();
+                    .ToListAsync();
             }
         }
     }

@@ -32,7 +32,7 @@
 
             // Act
             var service = new TripService(this.ContextMock.Object);
-            var res = await service.GetJourneyByDate(dateTo, dateFrom);
+            var res = await service.GetJourneyByDateAsync(dateTo, dateFrom);
 
             // Assert
             this.ContextMock.Verify();

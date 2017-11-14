@@ -1,4 +1,5 @@
-﻿using BusTickets.BusinessServices.Services;
+﻿using System.Threading.Tasks;
+using BusTickets.BusinessServices.Services;
 using BusTickets.BusinessServices.UnitTests.Services.Base;
 using BusTickets.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +10,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
     public class CityServiceTest : BaseServiceTest
     {
         [TestMethod]
-        public void GetCity_WithTheSameFirstLeter_ShouldFiltered()
+        public async Task GetCity_WithTheSameFirstLeter_ShouldFiltered()
         {
             ////arrange
             var city1 = "Lviv";
@@ -27,7 +28,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
 
             //// Act
             var service = new CityService(this.ContextMock.Object);
-            var res = service.GetCity("L");
+            var res = await service.GetCityAsync("L");
 
             ////Assert
             this.ContextMock.Verify();

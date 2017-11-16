@@ -21,7 +21,7 @@ namespace BusTickets.Mobile.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new SharedLibrary.App());
+            LoadApplication(new Shared.App());
         }
     }
 }

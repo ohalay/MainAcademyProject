@@ -4,10 +4,8 @@ using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
-    public interface ITicketService
+    public interface IBusService
     {
-        Task CreateTicketAsync(int jorneyId);
-
-        Task<int> GetTicketAsync(int jorneyId);
+        Task<IList<Bus>> GetBusAsync(int id);
     }
 }

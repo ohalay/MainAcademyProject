@@ -1,4 +1,7 @@
-﻿using BusTickets.BusinessServices.Interfices;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using BusTickets.BusinessServices.Interfices;
+using BusTickets.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusTickets.WebAPI.Controllers
@@ -13,10 +16,16 @@ namespace BusTickets.WebAPI.Controllers
             this.ticketService = ticketService;
         }
 
-        [HttpGet("tickets/{jorneyId}")]
-        public IActionResult Get(int jorneyId)
+        [HttpPost("tickets/{jorneyId}")]
+        public async Task CreateTicketAsync(int jorneyId)
         {
-            return this.Ok(this.ticketService.GetTicketAsync(jorneyId));
+            await this.ticketService.CreateTicketAsync(jorneyId);
+        }
+
+        [HttpGet("tickets/{jorneyId}")]
+        public async Task<int> GetTicketAsync(int jorneyId)
+        {
+            return await this.ticketService.GetTicketAsync(jorneyId);
         }
     }
 }

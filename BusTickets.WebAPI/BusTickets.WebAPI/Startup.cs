@@ -28,6 +28,7 @@ namespace BusTickets.WebAPI
             services.AddTransient<ITicketService, TicketService>();
             services.AddTransient<ICityService, CityService>();
             services.AddTransient<ITripService, TripService>();
+            services.AddTransient<IBusService, BusService>();
 
             services.AddCors(options =>
             {

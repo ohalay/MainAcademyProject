@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using BusTickets.BusinessServices.Interfices;
+using BusTickets.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusTickets.WebAPI.Controllers
@@ -15,9 +18,9 @@ namespace BusTickets.WebAPI.Controllers
         }
 
         [HttpGet("trips/{jorneyId}")]
-        public IActionResult Get([FromQuery]DateTime dateFrom, [FromQuery]DateTime dateTo)
+        public async Task<IList<Journey>> GetJourneyByDateAsync([FromQuery]int arrivalStation, [FromQuery]int departueStation)
         {
-            return this.Ok(this.ticketServ.GetJourneyByDateAsync(dateFrom, dateTo));
+            return await this.ticketServ.GetJourneyByDateAsync(arrivalStation, departueStation);
         }
     }
 }

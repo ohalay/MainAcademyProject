@@ -14,11 +14,11 @@ public class TripService : BaseService, ITripService
         {
         }
 
-        public async Task<IList<Journey>> GetJourneyByDateAsync(DateTime dateFrom, DateTime dateTo)
+        public async Task<IList<Journey>> GetJourneyByDateAsync(int arrivalStation, int departueStation)
         {
             return await this.Context.Journeys
                     .AsNoTracking()
-                    .Where(s => s.DepartureTime >= dateFrom && s.DepartureTime <= dateTo)
+                    .Where(s => s.ArrivalStationID == arrivalStation && s.DepartureStationID == departueStation)
                     .ToListAsync();
         }
     }

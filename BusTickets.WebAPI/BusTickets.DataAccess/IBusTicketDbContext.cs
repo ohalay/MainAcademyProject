@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusTickets.DataAccess
 {
@@ -23,5 +25,7 @@ namespace BusTickets.DataAccess
          DbSet<BusType> BusTypes { get; set; }
 
         DbSet<Ticket> Tickets { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

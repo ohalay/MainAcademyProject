@@ -17,8 +17,8 @@ namespace BusTickets.WebAPI.Controllers
             this.ticketServ = ticketService;
         }
 
-        [HttpGet("trips/{jorneyId}")]
-        public async Task<IList<Journey>> GetJourneyByDateAsync([FromQuery]int arrivalStation, [FromQuery]int departueStation)
+        [HttpGet("trips")]
+        public async Task<IEnumerable<Journey>> GetJourneyByDateAsync([FromQuery]int arrivalStation, [FromQuery]int departueStation)
         {
             return await this.ticketServ.GetJourneyByDateAsync(arrivalStation, departueStation);
         }

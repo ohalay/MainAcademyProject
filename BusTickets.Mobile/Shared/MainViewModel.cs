@@ -1,77 +1,168 @@
-﻿using Refit;
-using Shared.IClient;
+﻿using BusTicketClient.Tables;
+using Refit;
 using Shared.MVVM;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Xamarin.Forms;
+using System.Threading.Tasks;
+using System;
 
 namespace Shared
 {
     public class MainViewModel : MvvmViewMode
     {
-        private string _result;
-        private IEnumerable<City> _cities;
-        private bool _isVisible;
-        private City _selectedItem;
+        private string _resultFrom;
+        private string _resultTo;
+        private IEnumerable<City> _citiesTo;
+        private IEnumerable<City> _citiesFrom;
+        private IEnumerable<Journey> _journeys;
+        private bool _isVisibleFrom;
+        private bool _isVisibleTo;
+        private City _selectedItemFrom;
+        private City _selectedItemTo;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            _isVisible = true;
+            _isVisibleFrom = true;
+            _isVisibleTo = true;
         }
 
-        public IEnumerable<City> Cities
+        public IEnumerable<Journey> Journeys
         {
             get
             {
-                return _cities;
+                return _journeys;
             }
             set
             {
-                _cities = value;
-                OnPropertyChanged(nameof(Cities));
-            }
-        }
-
-        public bool IsVisible
-        {
-            get => _isVisible;
-            set
-            {
-                SetProperty(ref _isVisible, value);
+                _journeys = value;
+                
+                OnPropertyChanged(nameof(Journeys));
             }
         }
 
-        public City SelectedItem
+        public IEnumerable<City> CitiesFrom
         {
-            get => _selectedItem;
+            get
+            {
+                return _citiesFrom;
+            }
             set
             {
-                _selectedItem = value;
-                if (_selectedItem != null)
+                _citiesFrom = value;
+                OnPropertyChanged(nameof(CitiesFrom));
+            }
+        }
+
+        public IEnumerable<City> CitiesTo
+        {
+            get
+            {
+                return _citiesTo;
+            }
+            set
+            {
+                _citiesTo = value;
+                OnPropertyChanged(nameof(CitiesTo));
+            }
+        }
+
+        public bool IsVisibleFrom
+        {
+            get => _isVisibleFrom;
+            set
+            {
+                SetProperty(ref _isVisibleFrom, value);
+            }
+        }
+        public bool IsVisibleTo
+        {
+            get => _isVisibleTo;
+            set
+            {
+                SetProperty(ref _isVisibleTo, value);
+            }
+        }
+
+        public City SelectedItemFrom
+        {
+            get => _selectedItemFrom;
+            set
+            {
+                _selectedItemFrom = value;
+                if (_selectedItemFrom != null)
                 {
-                    IsVisible = false;
-                    Result = _selectedItem.Name;
+                    IsVisibleFrom = false;
+                    ResultFrom = _selectedItemFrom.Name;
+                    SearchJourney();
                 }
             }
         }
 
-        public ICommand SearchCommand
+        public City SelectedItemTo
+        {
+            get => _selectedItemTo;
+            set
+            {
+                _selectedItemTo = value;
+                if (_selectedItemTo != null)
+                {
+                    IsVisibleTo = false;
+                    ResultTo = _selectedItemTo.Name;
+                    SearchJourney();
+                }
+            }
+        }
+
+        public ICommand SearchCommandFrom
             => new MvvmCommand(param =>
             {
-                var client = RestService.For<Shared.IClient.IClient>("http://localhost:55194");
-                Cities = client.GetCity(param.ToString()).Result;
+                var client = RestService.For<IClient>("http://localhost:55194");
+                CitiesFrom = client.GetCity(param.ToString()).Result;
             });
 
-        public string Result
+        public ICommand SearchCommandTo
+            => new MvvmCommand(param =>
+            {
+                var client = RestService.For<IClient>("http://localhost:55194");
+                CitiesTo = client.GetCity(param.ToString()).Result;
+            });
+
+        public string ResultFrom
         {
-            get => _result;
+            get => _resultFrom;
             private set
             {
-                _result = value;
+                _resultFrom = value;
                 OnPropertyChanged();
             }
         }
+
+        public string ResultTo
+        {
+            get => _resultTo;
+            private set
+            {
+                _resultTo = value;
+                OnPropertyChanged();
+            }
+        }
+        public void SearchJourney()
+        {
+            if (SelectedItemFrom != null && SelectedItemTo != null)
+            {
+                var client = RestService.For<IClient>("http://localhost:55194");
+                Journeys = client.GetJourney(SelectedItemFrom.ID, SelectedItemTo.ID).Result;
+                foreach(var item in Journeys)
+                {
+                    item.CityNameFrom = _selectedItemFrom.Name;
+                    item.CityNameTo = _selectedItemTo.Name;
+                }
+            }
+        }
+        
     }
 }

@@ -9,5 +9,10 @@ namespace Shared
             InitializeComponent();
             BindingContext = new MainViewModel();
         }
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushModalAsync(new DescriptionPage());
+        }
     }
 }

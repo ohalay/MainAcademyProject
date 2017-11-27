@@ -1,33 +1,33 @@
 matrix:
   include:
     - language: node_js
-        node_js: 
-	    -'8.9.0'
-        branches:
-            only:
-                - Development
-        before_script:
-            - npm install -g @angular/cli
-	          - cd BusTicket.WebSite
-        script:
-            - ng build --prod
-    - language: csharp
-        sudo: false
-        dist: trusty
-        mono: none
-        dotnet: 2.0.0
-        env:
-        global:
-            - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-            - DOTNET_CLI_TELEMETRY_OPTOUT: 1   
-        os:
-	    - linux
-        branches:
+      node_js:
+        - '8.9.0'
+      branches:
         only:
-            - Development
+          - Development
+      before_script:
+        - npm install -g @angular/cli
+        - cd BusTicket.WebSite
+      script:
+        - ng build --prod
+    - language: csharp
+      sudo: false
+      dist: trusty
+      mono: none
+      dotnet: 2.0.0
+      env:
+      global:
+        - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+        - DOTNET_CLI_TELEMETRY_OPTOUT: 1   
+      os:
+        - linux
+      branches:
+        only:
+          - Development
         script:
-            - dotnet restore BusTickets.WebAPI
-            - dotnet build -c Release BusTickets.WebAPI
+          - dotnet restore BusTickets.WebAPI
+          - dotnet build -c Release BusTickets.WebAPI
 notifications:
     email: false
     slack: 

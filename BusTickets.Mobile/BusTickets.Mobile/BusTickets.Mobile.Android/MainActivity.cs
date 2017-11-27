@@ -2,7 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using SharedLibrary;
+using Shared;
 
 namespace BusTickets.Mobile.Droid
 {
@@ -17,7 +17,7 @@ namespace BusTickets.Mobile.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new App ());
+			LoadApplication (new Shared.App());
 		}
 	}
 }

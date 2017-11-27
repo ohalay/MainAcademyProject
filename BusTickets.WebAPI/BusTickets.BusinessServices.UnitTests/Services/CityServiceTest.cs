@@ -33,7 +33,7 @@ namespace BusTickets.BusinessServices.UnitTests.Services
             ////Assert
             this.ContextMock.Verify();
             Assert.IsNotNull(res);
-            Assert.AreEqual(2, res.Count);
+            Assert.AreEqual(2, res);
             Assert.AreEqual(city1, "Lviv", city2, "London");
         }
     }

@@ -7,6 +7,6 @@ namespace BusTickets.BusinessServices.Interfices
 {
     public interface ITripService
     {
-        Task<IList<Journey>> GetJourneyByDateAsync(int arrivalStation, int departueStation);
+        Task<IEnumerable<Journey>> GetJourneyByDateAsync(int arrivalStation, int departueStation);
     }
 }

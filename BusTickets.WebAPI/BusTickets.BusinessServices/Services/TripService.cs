@@ -14,7 +14,7 @@ public class TripService : BaseService, ITripService
         {
         }
 
-        public async Task<IList<Journey>> GetJourneyByDateAsync(int arrivalStation, int departueStation)
+        public async Task<IEnumerable<Journey>> GetJourneyByDateAsync(int arrivalStation, int departueStation)
         {
             return await this.Context.Journeys
                     .AsNoTracking()

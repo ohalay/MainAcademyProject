@@ -28995,19 +28995,19 @@
     "UAP,Version=v10.0.10586": []
   },
   "packageFolders": {
-    "C:\\Users\\Coolleak\\.nuget\\packages\\": {}
+    "C:\\Users\\kolya\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
       "projectName": "BusTickets.Mobile.UWP",
-      "projectPath": "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\project.json",
-      "packagesPath": "C:\\Users\\Coolleak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\obj\\",
+      "projectPath": "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\BusTickets.Mobile.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\project.json",
+      "packagesPath": "C:\\Users\\kolya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\BusTickets.Mobile\\BusTickets.Mobile.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\Users\\Coolleak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kolya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {
@@ -29017,8 +29017,8 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\Coolleak\\Source\\BusTickets.Mobile\\Shared\\Shared.csproj"
+            "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\kolya\\Source\\my\\BusTickets.Mobile\\Shared\\Shared.csproj"
             }
           }
         }

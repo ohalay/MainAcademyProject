@@ -5,20 +5,76 @@
              x:Class="Shared.MainPage">
     <StackLayout HorizontalOptions="Center">
         <SearchBar 
-            SearchCommand="{Binding SearchCommand}" 
-            x:Name="search" 
-            SearchCommandParameter="{Binding Source={x:Reference search}, Path=Text}" 
-            Text="{Binding Result}">
+            x:Name="cityFrom"
+            SearchCommandParameter="{Binding Source={x:Reference cityFrom}, Path=Text}" 
+            SearchCommand="{Binding SearchCommandFrom}" 
+            Text="{Binding ResultFrom, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            IsEnabled="True">
         </SearchBar>
         <ListView 
-            SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" 
-            ItemsSource="{Binding Cities}"
-            IsVisible="{Binding IsVisible}">
+            SelectedItem="{Binding SelectedItemFrom, Mode=TwoWay}" 
+            ItemsSource="{Binding CitiesFrom}"
+            IsVisible="{Binding IsVisibleFrom}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+        <SearchBar 
+            HorizontalOptions="FillAndExpand"
+            SearchCommand="{Binding SearchCommandTo}" 
+            x:Name="CityTo" 
+            SearchCommandParameter="{Binding Source={x:Reference CityTo}, Path=Text}" 
+            Text="{Binding ResultTo}">
+        </SearchBar>
+        <ListView 
+            SelectedItem="{Binding SelectedItemTo, Mode=TwoWay}" 
+            ItemsSource="{Binding CitiesTo}"
+            IsVisible="{Binding IsVisibleTo}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+         <ListView BackgroundColor="Aqua"
+                  ItemsSource="{Binding Journeys}"
+                  ItemSelected="OnItemSelected" >
+            <ListView.Header>
+                <Grid Padding="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Column="0" Text="City From"></Label>
+                    <Label  Grid.Column="1" Text="City To"></Label>
+                    <Label  Grid.Column="2" Text="Departure Time"></Label>
+                    <Label  Grid.Column="3" Text="Arrival Time"></Label>
+                    <Label  Grid.Column="4" Text="Distance"></Label>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column="0" Text="{Binding CityNameFrom}"></Label>
+                            <Label  Grid.Column="1" Text="{Binding CityNameTo}"></Label>
+                            <Label  Grid.Column="2" Text="{Binding DepartureTime}"></Label>
+                            <Label  Grid.Column="3" Text="{Binding ArrivalTime}"></Label>
+                            <Label  Grid.Column="4" Text="{Binding Distance}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+       
     </StackLayout>
 </ContentPage>

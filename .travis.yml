@@ -11,6 +11,7 @@ matrix:
         - cd BusTicket.WebSite
       script:
         - npm i
+        - ng lint
         - ng build --prod
     - language: csharp
       sudo: false

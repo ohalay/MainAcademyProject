@@ -5,10 +5,10 @@
              x:Class="Shared.MainPage">
     <StackLayout HorizontalOptions="Center">
         <SearchBar 
+            x:Name="cityFrom"
+            SearchCommandParameter="{Binding Source={x:Reference cityFrom}, Path=Text}" 
             SearchCommand="{Binding SearchCommandFrom}" 
-            x:Name="CityFrom" 
-            SearchCommandParameter="{Binding Source={x:Reference CityFrom}, Path=Text}" 
-            Text="{Binding ResultFrom}"
+            Text="{Binding ResultFrom, Mode=TwoWay}"
             HorizontalOptions="FillAndExpand"
             IsEnabled="True">
         </SearchBar>
@@ -43,30 +43,32 @@
          <ListView BackgroundColor="Aqua"
                   ItemsSource="{Binding Journeys}"
                   ItemSelected="OnItemSelected" >
+            <ListView.Header>
+                <Grid Padding="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Column="0" Text="City From"></Label>
+                    <Label  Grid.Column="1" Text="City To"></Label>
+                    <Label  Grid.Column="2" Text="Departure Time"></Label>
+                    <Label  Grid.Column="3" Text="Arrival Time"></Label>
+                    <Label  Grid.Column="4" Text="Distance"></Label>
+                </Grid>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="20"></RowDefinition>
-                                <RowDefinition Height="20"></RowDefinition>
-                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="60"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding CityNameFrom}"></Label>
-                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding CityNameTo}"></Label>
-                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding DepartureTime}"></Label>
-                            <Label Grid.Row="1" Grid.Column="3" Text="{Binding ArrivalTime}"></Label>
-                            <Label Grid.Row="1" Grid.Column="4" Text="{Binding Distance}"></Label>
-                            
-                            <Label Grid.Row="0" Grid.Column="0" Text="City From"></Label>
-                            <Label Grid.Row="0" Grid.Column="1" Text="City To"></Label>
-                            <Label Grid.Row="0" Grid.Column="2" Text="Departure Time"></Label>
-                            <Label Grid.Row="0" Grid.Column="3" Text="Arrival Time"></Label>
-                            <Label Grid.Row="0" Grid.Column="4" Text="Distance"></Label>
-                            
+                            <Label  Grid.Column="0" Text="{Binding CityNameFrom}"></Label>
+                            <Label  Grid.Column="1" Text="{Binding CityNameTo}"></Label>
+                            <Label  Grid.Column="2" Text="{Binding DepartureTime}"></Label>
+                            <Label  Grid.Column="3" Text="{Binding ArrivalTime}"></Label>
+                            <Label  Grid.Column="4" Text="{Binding Distance}"></Label>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

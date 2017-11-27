@@ -23,7 +23,5 @@ namespace BusTicketClient.Tables
         [Get("/api/v1/buses/{id}")]
         Task<IEnumerable<Bus>> GetBus(int id);
 
-        [Get("/api/v1/city")]
-        Task<IEnumerable<City>> GetCityName(int id);
     }
 }

@@ -121,7 +121,7 @@ namespace Shared
             => new MvvmCommand(param =>
             {
                 var client = RestService.For<IClient>("http://localhost:55194");
-                CitiesFrom = client.GetCity(param.ToString()).Result;
+                CitiesFrom = client.GetCity(this.ResultFrom).Result;
             });
 
         public ICommand SearchCommandTo
@@ -134,7 +134,7 @@ namespace Shared
         public string ResultFrom
         {
             get => _resultFrom;
-            private set
+            set
             {
                 _resultFrom = value;
                 OnPropertyChanged();

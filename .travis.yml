@@ -8,7 +8,7 @@ matrix:
           - Development
       before_script:
         - npm install -g @angular/cli
-        - cd BusTicket.WebSite
+        - cd BusTickets.WebSite
       script:
         - npm i
         - ng lint

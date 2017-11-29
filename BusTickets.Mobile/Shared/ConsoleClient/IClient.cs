@@ -12,7 +12,7 @@ namespace BusTicketClient.Tables
         Task<IEnumerable<City>> GetCity(string startwithcity);
 
         [Get("/api/v1/tickets/{jorneyId}")]
-        Task<int> GetTicket(int jorneyId);
+        Task<int> GetAvailableTicketNumber(int jorneyId);
 
         [Get("/api/v1/busStops/{id}")]
         Task<IEnumerable<BusStop>> GetBusStop(int id);
@@ -21,7 +21,7 @@ namespace BusTicketClient.Tables
         Task<IEnumerable<Journey>> GetJourney(int arrivalStation, int departueStation);
 
         [Get("/api/v1/buses/{id}")]
-        Task<IEnumerable<Bus>> GetBus(int id);
+        Task<Bus> GetBus(int id);
 
     }
 }

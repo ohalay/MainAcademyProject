@@ -16,12 +16,10 @@ namespace BusTickets.BusinessServices.Services
 
         public async Task<IList<City>> GetCityAsync(string starwithcity)
         {
-            {
                 return await this.Context.Cities
                     .AsNoTracking()
                     .Where(c => c.Name.StartsWith(starwithcity))
                     .ToListAsync();
-            }
         }
     }
 }

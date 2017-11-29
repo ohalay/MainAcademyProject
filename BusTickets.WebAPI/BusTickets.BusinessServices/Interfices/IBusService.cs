@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BusTickets.DataAccess;
 
 namespace BusTickets.BusinessServices.Interfices
 {
     public interface IBusService
     {
-        Task<IList<Bus>> GetBusAsync(int id);
+        Task<Bus> GetBusAsync(int id);
     }
 }

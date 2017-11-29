@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BusTickets.BusinessServices.Interfices;
 using BusTickets.DataAccess;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +16,7 @@ namespace BusTickets.WebAPI.Controllers
         }
 
         [HttpGet("buses/{id}")]
-        public async Task<IList<Bus>> GetBusAsync(int id)
+        public async Task<Bus> GetBusAsync(int id)
         {
             return await this.buses.GetBusAsync(id);
         }

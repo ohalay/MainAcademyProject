@@ -23,9 +23,9 @@ namespace BusTickets.WebAPI.Controllers
         }
 
         [HttpGet("tickets/{jorneyId}")]
-        public async Task<int> GetTicketAsync(int jorneyId)
+        public async Task<int> GetAvailableTicketNumber(int jorneyId)
         {
-            return await this.ticketService.GetTicketAsync(jorneyId);
+            return await this.ticketService.GetAvailableTicketNumber(jorneyId);
         }
     }
 }

@@ -2,11 +2,52 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Shared.DescriptionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="InfoLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="#eee"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="BuyButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="From" Grid.Row="0" Grid.Column="0" Style="{StaticResource InfoLabel}"/>
+            <Label Text="To" Grid.Row="1" Grid.Column="0" Style="{StaticResource InfoLabel}"/>
+            <Label Text="Distance" Grid.Row="2" Grid.Column="0" Style="{StaticResource InfoLabel}"/>
+            <Label Text="Bus number" Grid.Row="3" Grid.Column="0" Style="{StaticResource InfoLabel}"/>
+            <Label Text="Tickets available" Grid.Row="4" Grid.Column="0" Style="{StaticResource InfoLabel}"/>
+
+            <Label Text="{Binding FromCity}" Grid.Row="0" Grid.Column="1" Style="{StaticResource InfoLabel}"/>
+            <Label Text="{Binding ToCity}" Grid.Row="1" Grid.Column="1" Style="{StaticResource InfoLabel}"/>
+            <Label Text="{Binding Distance}" Grid.Row="2" Grid.Column="1" Style="{StaticResource InfoLabel}"/>
+            <Label Text="{Binding BusNumber}" Grid.Row="3" Grid.Column="1" Style="{StaticResource InfoLabel}"/>
+            <Label Text="{Binding TicketNumber}" Grid.Row="4" Grid.Column="1" Style="{StaticResource InfoLabel}"/>
+
+            <Button Text="Buy" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource BuyButton}" 
+                    IsEnabled="{Binding IsFreeTicket}" BackgroundColor="{Binding ButtonColor}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

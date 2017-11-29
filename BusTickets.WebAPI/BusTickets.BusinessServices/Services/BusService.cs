@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using BusTickets.BusinessServices.Interfices;
 using BusTickets.DataAccess;
@@ -14,12 +13,12 @@ namespace BusTickets.BusinessServices.Services
         {
         }
 
-        public async Task<IList<Bus>> GetBusAsync(int id)
+        public async Task<Bus> GetBusAsync(int id)
         {
             return await this.Context.Buses
                 .AsNoTracking()
                 .Where(s => s.ID == id)
-                .ToListAsync();
+                .FirstAsync();
         }
     }
 }

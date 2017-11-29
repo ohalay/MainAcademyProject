@@ -29,7 +29,7 @@ namespace BusTickets.BusinessServices.Services
             await this.Context.SaveChangesAsync();
         }
 
-        public async Task<int> GetTicketAsync(int jorneyId)
+        public async Task<int> GetAvailableTicketNumber(int jorneyId)
         {
             var resTicket = await this.Context.Tickets
                 .AsNoTracking()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketClient.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,10 @@ namespace Shared
 
 	public partial class DescriptionPage : ContentPage
 	{
-		public DescriptionPage ()
+		public DescriptionPage (Journey journey)
 		{
 			InitializeComponent ();
-            BindingContext = new DescriptionViewModel();
+            BindingContext = new DescriptionViewModel(journey);
 		}
 	}
 }

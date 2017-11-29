@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketClient.Tables;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,9 +14,7 @@ namespace Shared
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
-
         }
 
         protected override void OnStart()

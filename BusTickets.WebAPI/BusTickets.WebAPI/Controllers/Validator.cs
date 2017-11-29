@@ -8,9 +8,8 @@ namespace BusTickets.WebAPI.Controllers
 {
     public class Validator : AbstractValidator<BusController>
     {
-        public BusValidator()
+        public void BusValidator()
         {
-            RuleFor(bus => bus.GetBusAsync).Equal();
         }
     }
 }

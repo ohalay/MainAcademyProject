@@ -120,14 +120,14 @@ namespace Shared
         public ICommand SearchCommandFrom
             => new MvvmCommand(param =>
             {
-                var client = RestService.For<IClient>("http://localhost:55194");
+                var client = RestService.For<IClient>(Constant.ServerPath);
                 CitiesFrom = client.GetCity(this.ResultFrom).Result;
             });
 
         public ICommand SearchCommandTo
             => new MvvmCommand(param =>
             {
-                var client = RestService.For<IClient>("http://localhost:55194");
+                var client = RestService.For<IClient>(Constant.ServerPath);
                 CitiesTo = client.GetCity(param.ToString()).Result;
             });
 
@@ -154,7 +154,7 @@ namespace Shared
         {
             if (SelectedItemFrom != null && SelectedItemTo != null)
             {
-                var client = RestService.For<IClient>("http://localhost:55194");
+                var client = RestService.For<IClient>(Constant.ServerPath);
                 Journeys = client.GetJourney(SelectedItemFrom.ID, SelectedItemTo.ID).Result;
                 foreach(var item in Journeys)
                 {

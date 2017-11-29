@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using BusTicketClient.Tables;
+using Xamarin.Forms;
 
 namespace Shared
 {
@@ -12,7 +13,7 @@ namespace Shared
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushModalAsync(new DescriptionPage());
+            await Navigation.PushModalAsync(new DescriptionPage((Journey)e.SelectedItem));
         }
     }
 }

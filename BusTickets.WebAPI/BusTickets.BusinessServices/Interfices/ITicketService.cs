@@ -8,6 +8,6 @@ namespace BusTickets.BusinessServices.Interfices
     {
         Task CreateTicketAsync(int jorneyId);
 
-        Task<int> GetTicketAsync(int jorneyId);
+        Task<int> GetAvailableTicketNumber(int jorneyId);
     }
 }
